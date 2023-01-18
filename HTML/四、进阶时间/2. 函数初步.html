@@ -1,4 +1,5 @@
 
+<!DOCTYPE html>
 <html lang="zh">
     <head>
         <title>2. 函数初步 - Python从入门到入坟</title>
@@ -9,6 +10,11 @@
         <link rel="stylesheet" href="../../resources/CodeHighLight/styles/hybrid.min.css">
         <script src="../../resources/CodeHighLight/highlight.min.js"></script>
         <script>hljs.highlightAll();</script>
+        <style>
+            code.hljs{
+                background-color: var(--accent-bg) !important;
+            }
+        </style>
         <style>
             body{
                 font-family: "LXGW WenKai",serif;
@@ -106,6 +112,11 @@
                         elem.remove()
                     })
                     nav.insertBefore($("footer>:first-child"))
+                    align = $("[align]")
+                    align.each((e)=>{
+                        e = align.get(e)
+                        e.style.textAlign = e.attributes.align.value;
+                    })
                 }
             );
             function showMessage(message, type) {

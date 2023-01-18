@@ -1,4 +1,5 @@
 
+<!DOCTYPE html>
 <html lang="zh">
     <head>
         <title>一、Python的昨天、今天和明天 - Python从入门到入坟</title>
@@ -9,6 +10,11 @@
         <link rel="stylesheet" href="../../resources/CodeHighLight/styles/hybrid.min.css">
         <script src="../../resources/CodeHighLight/highlight.min.js"></script>
         <script>hljs.highlightAll();</script>
+        <style>
+            code.hljs{
+                background-color: var(--accent-bg) !important;
+            }
+        </style>
         <style>
             body{
                 font-family: "LXGW WenKai",serif;
@@ -106,6 +112,11 @@
                         elem.remove()
                     })
                     nav.insertBefore($("footer>:first-child"))
+                    align = $("[align]")
+                    align.each((e)=>{
+                        e = align.get(e)
+                        e.style.textAlign = e.attributes.align.value;
+                    })
                 }
             );
             function showMessage(message, type) {
@@ -167,23 +178,8 @@
 </blockquote>
 <p>欢迎您！入门的朋友！</p>
 <p>在这一章，我们将简要了解一下应该计算机和编程的内容。</p>
-<p>本章主要分为三个部分：</p>
-<ol>
-<li>Python的昨天<ul>
-<li>§1 计算机与编程简史</li>
-</ul>
-</li>
-<li>Python的今天<ul>
-<li>§2 Python的开发过程</li>
-<li>§5 Python不同版本的差别</li>
-<li>§3 现代编程语言大观园</li>
-</ul>
-</li>
-<li>Python的明天<ul>
-<li>§3 Python的优点与用途</li>
-</ul>
-</li>
-</ol>
+<p>思维导图：
+<img alt="MindMap" src="img/mermaid-diagram-2023-01-14-191738.png"></p>
 <p>由于本章知识比较杂乱且与编程没有太大关联，故不设考点，大家了解了解即可。</p>
 <p>罗里吧嗦了这么多，咱们赶紧开始吧！</p></main>
         <footer>

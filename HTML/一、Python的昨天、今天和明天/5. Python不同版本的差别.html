@@ -1,4 +1,5 @@
 
+<!DOCTYPE html>
 <html lang="zh">
     <head>
         <title>5. Python不同版本的差别 - Python从入门到入坟</title>
@@ -9,6 +10,11 @@
         <link rel="stylesheet" href="../../resources/CodeHighLight/styles/hybrid.min.css">
         <script src="../../resources/CodeHighLight/highlight.min.js"></script>
         <script>hljs.highlightAll();</script>
+        <style>
+            code.hljs{
+                background-color: var(--accent-bg) !important;
+            }
+        </style>
         <style>
             body{
                 font-family: "LXGW WenKai",serif;
@@ -106,6 +112,11 @@
                         elem.remove()
                     })
                     nav.insertBefore($("footer>:first-child"))
+                    align = $("[align]")
+                    align.each((e)=>{
+                        e = align.get(e)
+                        e.style.textAlign = e.attributes.align.value;
+                    })
                 }
             );
             function showMessage(message, type) {
@@ -164,7 +175,129 @@
             </nav>
 
         </header>
-        <main></main>
+        <main><aside>
+<p>参与编写：Pi圆周率</p>
+<p>开始编写时间：2023年1月18日</p>
+<p>编写完成时间：2023年1月18日</p>
+<p>最后一次修改：2023年1月18日</p>
+</aside>
+
+<p>在很多时候，我们会听到“兼容性”这个词。兼容在编程中极为重要，
+因此我们有必要对各个版本的特性进行了解</p>
+<h2>0x1 2.X --&gt; 3.X</h2>
+<p>在之前的文章中，我们简单的提到了Python3不会向下兼容Python2，
+下面是Python3.X版本的主要改动：</p>
+<table>
+<thead>
+<tr>
+<th align="center">说明</th>
+<th align="center">Python2</th>
+<th align="center">Python3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">在Python2中，print是关键字；在Python3中，print是函数</td>
+<td align="center"><code>print "Hello World"</code></td>
+<td align="center"><code>print("Hello World")</code></td>
+</tr>
+<tr>
+<td align="center">Python2中，/（除法）返回整数；Python3中，/ 返回浮点数</td>
+<td align="center"><code>3/2 == 1</code></td>
+<td align="center"><code>3/2 == 1.5</code></td>
+</tr>
+<tr>
+<td align="center">Python2中，有range和rangex函数，常用后一个；Python3删除了第一个函数，将第二个函数更名为range</td>
+<td align="center"><code>rangex(...)</code></td>
+<td align="center"><code>range(...)</code></td>
+</tr>
+</tbody>
+</table>
+<p>除此之外，还有很多。</p>
+<p>在Python官方呼吁大家从Python2转到Python3时，
+还有一个用来辅助转换的工具——<code>lib2to3</code>，
+这个工具应该在<code>Python安装地址/Lib/lib2to3</code>中。
+其中的<code>fixes</code>文件夹下的各个程序的注释里详细的写着替换方式
+（也就是Python2与Python3的不同之处）。
+感兴趣的同学可以去翻翻看。</p>
+<p>注：Python的安装会在下一节课讲。</p>
+<h2>0x2 3.5</h2>
+<ol>
+<li>添加协程关键字：async、await</li>
+<li>依据PEP添加矩阵乘法符号@
+    （注：原生Python没有内置矩阵类型，需要配合第三方库使用）</li>
+<li><strong><em>支持使用<em>、</em>*对列表、字典等拆解</em></strong></li>
+<li>bytes、bytearray类型支持%运算符</li>
+<li><strong><em>增加--&gt;声明函数返回类型</em></strong></li>
+<li>添加os.scandir函数使遍历文件夹更快</li>
+<li>math、cmath库增加isclose函数来进行约等于判断</li>
+<li>增加typing库来支持类型提示</li>
+<li>增加zipapp来增强Python ZIP Application的支持</li>
+</ol>
+<p>P.S. 你或许看到了不少陌生词汇，不要怕，先跳过，以后你会熟悉它们的</p>
+<p>另注：包括接下来的内容，我将用 <strong><em>加粗加斜</em></strong> 的字体表示重要的更新内容</p>
+<h2>0x3 3.6</h2>
+<ol>
+<li><strong><em>增加了f-string这一特性</em></strong></li>
+<li><strong><em>增加类型声明这一特性</em></strong></li>
+<li><strong><em>可以在数字中加入下划线来增强可读性；</em></strong>
+    同样的，在字符串的format方法加入下划线可以输出含有下划线的数字</li>
+<li>生成器和列表推导式支持async、await</li>
+<li>类新增了__init_subclass__这一魔术方法</li>
+<li>将Windows上使用的默认编码改为UTF-8</li>
+<li>增加了secrets模块来生成真正随机的随机数</li>
+</ol>
+<h2>0x4 3.7</h2>
+<ol>
+<li>改进类型提示功能（3.10之前需从__future__导入）</li>
+<li><strong><em>增加breakpoint函数来调用pdb</em></strong></li>
+<li>增加了纳秒级别时间函数</li>
+<li>增加“废弃的特性”警告</li>
+<li><strong><em>增加dataclass装饰器来使用默认的魔术方法</em></strong></li>
+</ol>
+<h2>0x5 3.8</h2>
+<ol>
+<li><strong><em>增加海象运算符:=</em></strong></li>
+<li><strong><em>支持使用 /（斜杠）来定义“仅位参数”</em></strong></li>
+<li><strong><em>f-string支持使用“=”将括号内内容一并输出</em></strong></li>
+<li>在re字符串中可以使用\N{...}转义符</li>
+<li>在函数中支持返回*解包后的内容</li>
+<li>修复了<code>{input("k:"): input("v") for i in range(2)}</code>先询问v再询问k的问题</li>
+<li><code>[(1, 2) (3, 4)]</code>不再发出Not Callable警告，而是SyntaxWarning</li>
+<li>增加了importlib.metadata库来查询第三方库</li>
+<li>可以对dict类型使用reversed函数，返回一个DictReverseKeyIterator</li>
+</ol>
+<h2>0x6 3.9</h2>
+<ol>
+<li><strong><em>支持使用 |（管道）符号来合并字典</em></strong></li>
+<li>字符类型增加了removeprefix、和removesuffix来移除前/后缀</li>
+<li>新增zoneinfo模块来处理时区</li>
+</ol>
+<h2>0x7 3.10</h2>
+<ol>
+<li>支持使用小括号来同时使用多个上下文管理器</li>
+<li>更好的错误提示</li>
+<li><strong><em>增加了match-case语句</em></strong></li>
+<li>增加未指明文件编码警告</li>
+<li>增加 |（管道）符号来声明支持多种种类</li>
+</ol>
+<h2>0x8 3.11</h2>
+<ol>
+<li>变快了10%~60%</li>
+<li>错误提示更加清晰，从精确到行升级为精确到表达式甚至运算符</li>
+<li>增加了异常组这一特性</li>
+<li>支持将TypedDict中的变量声明为必须或非必须</li>
+<li>添加了Self类型</li>
+<li>新增@typing.dataclass_transform()来告诉编译器这里有魔术方法</li>
+<li>annotations特性不再需要从__future__中导入</li>
+<li>for语句中支持使用*运算符</li>
+<li>新增tomllib模块来支持.toml文件读取</li>
+</ol>
+<h2>第一章结语</h2>
+<p>第一章到此结束了~</p>
+<p><code>![自行脑补](完结撒花~~~.png)</code></p>
+<p>在这一章，我们了解了Python的昨天、今天和明天，是背景的阐述。
+真正的知识马上就要来了~</p></main>
         <footer>
         
             <nav>

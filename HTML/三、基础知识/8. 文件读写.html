@@ -1,4 +1,5 @@
 
+<!DOCTYPE html>
 <html lang="zh">
     <head>
         <title>8. 文件读写 - Python从入门到入坟</title>
@@ -9,6 +10,11 @@
         <link rel="stylesheet" href="../../resources/CodeHighLight/styles/hybrid.min.css">
         <script src="../../resources/CodeHighLight/highlight.min.js"></script>
         <script>hljs.highlightAll();</script>
+        <style>
+            code.hljs{
+                background-color: var(--accent-bg) !important;
+            }
+        </style>
         <style>
             body{
                 font-family: "LXGW WenKai",serif;
@@ -106,6 +112,11 @@
                         elem.remove()
                     })
                     nav.insertBefore($("footer>:first-child"))
+                    align = $("[align]")
+                    align.each((e)=>{
+                        e = align.get(e)
+                        e.style.textAlign = e.attributes.align.value;
+                    })
                 }
             );
             function showMessage(message, type) {
@@ -159,7 +170,7 @@
                 <a href="../%E4%BA%8C%E3%80%81%E5%87%86%E5%A4%87%E5%87%BA%E5%8F%91/%E7%AB%A0%E9%A6%96.html" title="二、准备出发" >上一章</a> 
                 <a href="%E7%AB%A0%E9%A6%96.html" title="三、基础知识">转至章首</a>
                 <a href="7.%20%E5%B8%B8%E7%94%A8%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.html" title="7. 常用内置函数" >上一节</a>
-                <a href="9.%20%E9%97%B2%E8%AF%9D%EF%BC%9A%E7%BC%96%E7%A8%8B%E7%A9%B6%E7%AB%9F%E6%80%8E%E4%B9%88%E5%AD%A6.html" title="9. 闲话：编程究竟怎么学" >下一节</a>
+                <a href="9.%20%E5%BC%82%E5%B8%B8%E5%8F%8A%E5%85%B6%E5%A4%84%E7%90%86.html" title="9. 异常及其处理" >下一节</a>
                 <a href="../%E5%9B%9B%E3%80%81%E8%BF%9B%E9%98%B6%E6%97%B6%E9%97%B4/%E7%AB%A0%E9%A6%96.html" title="四、进阶时间" >下一章</a>
             </nav>
 
@@ -171,7 +182,7 @@
                 <a href="../%E4%BA%8C%E3%80%81%E5%87%86%E5%A4%87%E5%87%BA%E5%8F%91/%E7%AB%A0%E9%A6%96.html" title="二、准备出发" >上一章</a> 
                 <a href="%E7%AB%A0%E9%A6%96.html" title="三、基础知识">转至章首</a>
                 <a href="7.%20%E5%B8%B8%E7%94%A8%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.html" title="7. 常用内置函数" >上一节</a>
-                <a href="9.%20%E9%97%B2%E8%AF%9D%EF%BC%9A%E7%BC%96%E7%A8%8B%E7%A9%B6%E7%AB%9F%E6%80%8E%E4%B9%88%E5%AD%A6.html" title="9. 闲话：编程究竟怎么学" >下一节</a>
+                <a href="9.%20%E5%BC%82%E5%B8%B8%E5%8F%8A%E5%85%B6%E5%A4%84%E7%90%86.html" title="9. 异常及其处理" >下一节</a>
                 <a href="../%E5%9B%9B%E3%80%81%E8%BF%9B%E9%98%B6%E6%97%B6%E9%97%B4/%E7%AB%A0%E9%A6%96.html" title="四、进阶时间" >下一章</a>
             </nav>
 

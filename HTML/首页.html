@@ -1,4 +1,5 @@
 
+<!DOCTYPE html>
 <html lang="zh">
     <head>
         <title>Python从入门到入坟 - Python从入门到入坟</title>
@@ -9,6 +10,11 @@
         <link rel="stylesheet" href="../resources/CodeHighLight/styles/hybrid.min.css">
         <script src="../resources/CodeHighLight/highlight.min.js"></script>
         <script>hljs.highlightAll();</script>
+        <style>
+            code.hljs{
+                background-color: var(--accent-bg) !important;
+            }
+        </style>
         <style>
             body{
                 font-family: "LXGW WenKai",serif;
@@ -106,6 +112,11 @@
                         elem.remove()
                     })
                     nav.insertBefore($("footer>:first-child"))
+                    align = $("[align]")
+                    align.each((e)=>{
+                        e = align.get(e)
+                        e.style.textAlign = e.attributes.align.value;
+                    })
                 }
             );
             function showMessage(message, type) {
@@ -758,9 +769,10 @@ t(f'Hello\\S{tmp}'\\Sif\\S(tmp:=nv.get())!=''\\Selse\\S'Nothing\\SInputted')).pa
 <li> <a href="%E4%B8%89%E3%80%81%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/6.%20%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5%28for%20...%20in%20...%2C%20while%20...%29.html">6. 循环语句(for ... in ..., while ...)</a> </li>
 <li> <a href="%E4%B8%89%E3%80%81%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/7.%20%E5%B8%B8%E7%94%A8%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.html">7. 常用内置函数</a> </li>
 <li> <a href="%E4%B8%89%E3%80%81%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/8.%20%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99.html">8. 文件读写</a> </li>
-<li> <a href="%E4%B8%89%E3%80%81%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/9.%20%E9%97%B2%E8%AF%9D%EF%BC%9A%E7%BC%96%E7%A8%8B%E7%A9%B6%E7%AB%9F%E6%80%8E%E4%B9%88%E5%AD%A6.html">9. 闲话：编程究竟怎么学</a> </li>
-<li> <a href="%E4%B8%89%E3%80%81%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/10.%20%E5%AE%9E%E8%B7%B5%EF%BC%9A%E7%AE%80%E5%8D%95%E7%9A%84%E6%88%90%E7%BB%A9%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F.html">10. 实践：简单的成绩管理系统</a> </li>
-<li> <a href="%E4%B8%89%E3%80%81%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/11.%20%E7%BB%93%E4%B8%9A%E6%B5%8B%E8%AF%95%20-%20%E4%B8%AD%E7%BA%A7.html">11. 结业测试 - 中级</a> </li>
+<li> <a href="%E4%B8%89%E3%80%81%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/9.%20%E5%BC%82%E5%B8%B8%E5%8F%8A%E5%85%B6%E5%A4%84%E7%90%86.html">9. 异常及其处理</a> </li>
+<li> <a href="%E4%B8%89%E3%80%81%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/10.%20%E9%97%B2%E8%AF%9D%EF%BC%9A%E7%BC%96%E7%A8%8B%E7%A9%B6%E7%AB%9F%E6%80%8E%E4%B9%88%E5%AD%A6.html">10. 闲话：编程究竟怎么学</a> </li>
+<li> <a href="%E4%B8%89%E3%80%81%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/11.%20%E5%AE%9E%E8%B7%B5%EF%BC%9A%E7%AE%80%E5%8D%95%E7%9A%84%E6%88%90%E7%BB%A9%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F.html">11. 实践：简单的成绩管理系统</a> </li>
+<li> <a href="%E4%B8%89%E3%80%81%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/12.%20%E7%BB%93%E4%B8%9A%E6%B5%8B%E8%AF%95%20-%20%E4%B8%AD%E7%BA%A7.html">12. 结业测试 - 中级</a> </li>
 </ul>
 </details>
 <details>

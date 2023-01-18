@@ -1,4 +1,5 @@
 
+<!DOCTYPE html>
 <html lang="zh">
     <head>
         <title>4. 现代编程语言大观园 - Python从入门到入坟</title>
@@ -9,6 +10,11 @@
         <link rel="stylesheet" href="../../resources/CodeHighLight/styles/hybrid.min.css">
         <script src="../../resources/CodeHighLight/highlight.min.js"></script>
         <script>hljs.highlightAll();</script>
+        <style>
+            code.hljs{
+                background-color: var(--accent-bg) !important;
+            }
+        </style>
         <style>
             body{
                 font-family: "LXGW WenKai",serif;
@@ -106,6 +112,11 @@
                         elem.remove()
                     })
                     nav.insertBefore($("footer>:first-child"))
+                    align = $("[align]")
+                    align.each((e)=>{
+                        e = align.get(e)
+                        e.style.textAlign = e.attributes.align.value;
+                    })
                 }
             );
             function showMessage(message, type) {
@@ -164,7 +175,188 @@
             </nav>
 
         </header>
-        <main></main>
+        <main><aside>
+<p>参与编写：Pi圆周率</p>
+<p>开始编写时间：2023年1月17日</p>
+<p>编写完成时间：2023年1月18日</p>
+<p>最后一次修改：2023年1月18日</p>
+</aside>
+
+<p>识时务者为俊杰，我们也来看看其他语言。</p>
+<p>P.S. 下面的语言是我认为比较“优秀”的编程语言，还有一些没有讲到的，可以百度一下</p>
+<p>认识一门语言，按惯例要从输出Hello World开始。
+让我们从不同语言的Hello World出发</p>
+<pre><code class="python"># Python
+print(&quot;Hello World&quot;)
+</code></pre>
+
+<h2>0x1 C家族</h2>
+<pre><code class="c">// C
+#include &lt;stdio.h&gt;
+int main(int argc, char* argv[])
+{
+    printf(&quot;Hello World\n&quot;);
+    return 0;
+}
+</code></pre>
+
+<pre><code class="c++">// C++
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    cout &lt;&lt; &quot;Hello World&quot; &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+
+<pre><code class="c#">// C#
+namespace hello{
+    internal class Hello{
+        static void Main(strings[] args){
+            Console.WriteLine(&quot;Hello World&quot;);
+        }
+    }
+}
+// Or more simpler, just
+Console.WriteLine(&quot;Hello World&quot;);
+</code></pre>
+
+<pre><code class="oc">// Objective-C
+#import &lt;Foundation/Foundation.h&gt;
+int main()
+{
+    NSLog(@&quot;Hello World&quot;);
+    return 0;    
+}
+</code></pre>
+
+<p>C语言有着一个庞大的家族，
+这个家庭的成员有：C语言、C++（俗名C艹）、
+C#（念C Sharp）、OC（Objective-C）</p>
+<p>我为什么要把它们放在一起讲呢？因为它们都很像。</p>
+<p>一般的，这些语言有以下优点：</p>
+<ol>
+<li>比较“基层”，运行速度较快</li>
+<li>学好一门，上手另一门很快</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">名字</th>
+<th align="center">官网链接</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">C</td>
+<td align="center">无*</td>
+</tr>
+<tr>
+<td align="center">C++</td>
+<td align="center">无*</td>
+</tr>
+<tr>
+<td align="center">C#</td>
+<td align="center"><a href="https://dotnet.microsoft.com/zh-cn/languages/csharp">https://dotnet.microsoft.com/zh-cn/languages/csharp</a></td>
+</tr>
+<tr>
+<td align="center">OC</td>
+<td align="center">无*</td>
+</tr>
+</tbody>
+</table>
+<p>* 由于年代古老，标星号的语言都没有官网，上表中所有的语言都没有官方的Logo</p>
+
+<h2>0x2 Java</h2>
+<aside>
+<img style="background-color: #316396" src="img/java-logo-vector.png" alt="Java的Logo">
+<p><a href="https://www.java.com/zh-CN/">Java官网</a></p>
+</aside>
+
+<pre><code class="java">// Java
+public class Hello{
+    public static void main(String[] argv){
+        System.out.println(&quot;Hello world&quot;);
+    }
+}
+</code></pre>
+
+<p>在我的印象里，听别人提起过最多次的编程语言就是Java。</p>
+<p>Java有以下优点：</p>
+<ol>
+<li>安全性能高</li>
+<li>强制类型，健壮性强</li>
+</ol>
+<h2>0x3 Go</h2>
+<aside>
+<img alt="Golang的吉祥物" src="img/golang.jpg">
+<p><a href="https://go.dev/">Golang的官网</a></p>
+</aside>
+
+<pre><code class="go">// Go
+package main
+import &quot;fmt&quot;
+
+func main(){
+    fmt.Println(&quot;Hello World&quot;)
+}
+</code></pre>
+
+<p>Go（也叫Golang）是一门比较新的语言，几乎和Python一样优雅，与Python的语法也类似，
+使用的人也很多，值得一学。顺带说一句，Golang的吉祥物是囊地鼠（见右图），
+很多Go的项目都会往封面上加上这个萌萌的吉祥物。</p>
+<h2>0x4 Rust</h2>
+<aside>
+<img alt="Rust的Logo" src="img/rust-logo-blk.svg">
+<p><a href="https://www.rust-lang.org/zh-CN/">Rust的官网</a></p>
+</aside>
+
+<pre><code class="rust">// Rust
+fn main() {
+    println!(&quot;Hello World&quot;);
+}
+</code></pre>
+
+<p>Rust与C语言家族是“近亲”，这门语言相当“基层”，
+你可以在手肝操作系统的教程里看到它的身影；
+（从右边的Logo中也可以看出来这一特点）
+它的另一大特点就是安全，任何不安全的代码都无法成功编译
+（不过好像有个unsafe语句块可以解决）。
+也很值得学一学。</p>
+<h2>0x5 JavaScript家族</h2>
+<pre><code class="javascript">// JavaScript
+alert(&quot;Hello World&quot;)
+</code></pre>
+
+<p>如果你想要开发网站，那么JavaScript就是你的必学内容。
+JavaScript虽然名字里有个Java，但和Java没有半点关系。
+JavaScript的一大特点是自由开放，这段代码你想怎么写就这么写，
+没有特别严格的要求（不过你要是严于律己的话，可以使用"use strict"）。</p>
+<p>当然，由于JavaScript中一些特性实在是奇怪，于是出现了其他奇怪的东西，
+比如这个：<a href="http://www.jsfuck.com/">JSF*ck - 只用6种字符编写你的代码</a>.</p>
+<p>JavaScript的其他原因也导致了一些替代品的出现：
+JSX语法、TypeScript、CoffeeScript等</p>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">Logo</th>
+<th align="center">官网</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">TypeScript</td>
+<td align="center"><img alt="TypeScript的Logo" src="img/ts-lettermark-white.png"></td>
+<td align="center"><a href="https://www.typescriptlang.org/zh/">https://www.typescriptlang.org/zh/</a></td>
+</tr>
+<tr>
+<td align="center">CoffeeScript</td>
+<td align="center"><img alt="CoffeeScript的Logo" src="img/coffeescript-logo.svg"></td>
+<td align="center"><a href="https://coffeescript.org/">https://coffeescript.org/</a></td>
+</tr>
+</tbody>
+</table></main>
         <footer>
         
             <nav>

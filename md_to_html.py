@@ -133,8 +133,10 @@ for path, dirs, files in os.walk("Markdown/"):
                 link_html = '''<kbd>出</kbd><kbd>现</kbd><kbd>问</kbd><kbd>题</kbd><kbd>了</kbd>'''
 
             with open(os.path.join(path, file), encoding='utf-8') as f:
-                html = markdown.markdown(f.read(), output_format="html", extensions=["fenced_code"])
+                html = markdown.markdown(f.read(), output_format="html",
+                                         extensions=["fenced_code", "tables"])
             html = f"""
+<!DOCTYPE html>
 <html lang="zh">
     <head>
         <title>{title} - Python从入门到入坟</title>
@@ -145,6 +147,11 @@ for path, dirs, files in os.walk("Markdown/"):
         <link rel="stylesheet" href="{path_to_root}resources/CodeHighLight/styles/hybrid.min.css">
         <script src="{path_to_root}resources/CodeHighLight/highlight.min.js"></script>
         <script>hljs.highlightAll();</script>
+        <style>
+            code.hljs{{
+                background-color: var(--accent-bg) !important;
+            }}
+        </style>
         <style>
             body{{
                 font-family: "LXGW WenKai",serif;
@@ -242,6 +249,11 @@ for path, dirs, files in os.walk("Markdown/"):
                         elem.remove()
                     }})
                     nav.insertBefore($("footer>:first-child"))
+                    align = $("[align]")
+                    align.each((e)=>{{
+                        e = align.get(e)
+                        e.style.textAlign = e.attributes.align.value;
+                    }})
                 }}
             );
             function showMessage(message, type) {{
