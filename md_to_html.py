@@ -386,5 +386,6 @@ content = content.replace('%ContentTable%', content_table.getvalue()).replace('%
 </script>
 '''
 )
+content = content.replace("<!DOCTYPE html>", "")
 with open('HTML/首页.html', 'w', encoding='utf-8') as f:
     f.write(content)
